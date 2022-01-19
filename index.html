@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>TDD for Embedded Systems</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h2>TDD for Embedded Systems</h2>
+					<p>
+						<small> <a href="https://lukaswoodtli.github.io/" target="_blank">Lukas Woodtli</a></small>
+					</p>
+				</section>
+				<section>
+					<h4>Intro: Why TDD</h4>
+					<p class="fragment">fast feedback loops</p>
+					<p class="fragment">better design</p>
+					<p class="fragment">better code health</p>
+					<p class="fragment">better quality for end user</p>
+				</section>
+				<section>
+					<section>
+						<h4>The TDD cycle</h4>
+						<p class="fragment">red-green-refactor</p>
+						<p class="fragment">There is still a design phase up front</p>
+					</section>
+					<section>
+						<h4>The TDD cycle extension for Embedded development</h4>
+						<p class="fragment">compile for target platform</p>
+						<p class="fragment">run tests on target platform</p>
+						<p class="fragment">...</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h4>Different kind of tests</h4>
+						<p class="fragment">Unit Test</p>
+						<p class="fragment">Integration/Component Test</p>
+						<p class="fragment">System/e2e Test</p>
+					</section>
+					<section>
+						<p class="fragment">what is a unit?</p>
+						<p class="fragment">what is a regression test?</p>
+						
+					</section>
+					
+					<section>
+						<h4>Access to resources in different test types</h4>
+
+						<table>
+							<thead>
+								<tr>
+									<th>Test Type</th>
+									<th>Source Code</th>
+									<th>Files, Network, DB...</th>
+									<th>Full Application</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Unit Tests</td>
+									<td>Yes</td>
+									<td>No</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>Integration Test</td>
+									<td>Yes</td>
+									<td>Yes</td>
+									<td>No</td>
+								</tr>
+								<tr>
+									<td>System Test</td>
+									<td>Yes</td>
+									<td>Yes</td>
+									<td>Yes</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<small>Michael Feathers: <a href="https://www.artima.com/weblogs/viewpost.jsp?thread=126923" target="_blank">A Set of Unit Testing Rules</a></small>
+					</section>
+					<section>
+						<p class="fragment">TDD works best with Unit Tests</p>
+						<p class="fragment">but can also be practiced with other kind of tests</p>
+
+					</section>
+				</section>
+				<section>Testing Pyramid (cone, diamond, iceberg…) https://kentcdodds.com/blog/static-vs-unit-vs-integration-vs-e2e-tests</section>
+			
+				<section>Test Quadrants</section>
+				<section>write good tests (aka test behaviour not implementation; testing private/hidden stuff)</section>
+				<section>SITL/HITL, simulations, emulations</section>
+				<section>Unit Test on target HW</section>
+				<section>Flow and fast feedback loops</section>
+				<section>Add more specific tests after the TDD cycle</section>
+				<section>Does TDD slow you down or makes you go faster?</section>
+				<section>Learning TDD: Katas instead of directly in production code (initial slowdown due to learning curve)</section>
+				<section>Make a Todo List (and keep up to date) during TDD</section>
+				<section>Design Patterns</section>
+				<section>BDD vs. TDD</section>
+				<section>Testing the Tests: Test coverage and Mutation Testing</section>
+				<section>Property based testing, Fuzz testing, symbolic execution, github scientist, approval tests, logging helpers</section>
+				<section>Mocking and faking (classicist vs. mockist)</section>
+				<section>slow, flakey or brittle tests (live-hate pyramid)</section>
+				<section>How to test private implementation (should I?)</section>
+				<section>Testing free/static functions (singletons?)</section>
+				<section>legacy code: integration tests -> refactor to patterns and testability</section>
+				<section>Naming Tests</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
